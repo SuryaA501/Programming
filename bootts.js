@@ -17,7 +17,14 @@ var com;
                 };
                 Boot.prototype.validate = function () {
                     var uname = document.getElementById("user").value;
+                    var pass = document.getElementById("pass").value;
+                    var male = document.getElementById("m1").value;
+                    var female = document.getElementById("m2").value;
+                    var mail = document.getElementById("mail").value;
+                    var num = document.getElementById("num").value;
                     console.log(uname);
+                    console.log(pass);
+                    console.log(mail);
                     return true;
                 };
                 return Boot;

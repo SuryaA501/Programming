@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<head>
+<title> </title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+
+          table{
+            border-collapse: collapse;
+            width: 50%;
+            margin: 50px auto;
+          }
+
+          table,th,td{
+              border: 1px solid black;
+              padding: 15px;
+          }
+
+          th{
+              font-size: 30px;
+              font-weight: 500;
+              font-family: cursive;
+              text-align: center;
+              color: green;
+          }
+
+          td{
+              font-size: 25px;
+              color: black;
+              font-weight: 200;
+              font-family: cursive;
+          }
+      
+      </style>
+
+</head>
+
+<body>
+    
+    <div class="container"><br>
+        <h1 class="text-success text-center">JavaScript Validations</h1>
+        <div class="col-lg-8 m-auto d-block">
+
+            <!-- <form onsubmit="SubmitForm()"   class="bg-light" > -->
+            
+                <div class="form-group">
+                  <label >UserName</label>
+                  <input type="text" name="user" id="us" class="form-control"  id="user">
+                  <span id="usererror" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                        <label >Password</label>
+                        <input type="password" name="pass" id="ps" class="form-control"  id="pass"  >
+                        <span id="passworderror" class="text-danger font-weight-bold"> </span>  
+                    </div>
+
+                      <div class="form-group">
+                        <label >confirm password</label>
+                        <input type="password" name="cpass" id="cps" class="form-control"  id="cpass">
+                        <span id="cpasserror" class="text-danger font-weight-bold"> </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label >Email</label>
+                      <input type="text" name="email" id="mail" class="form-control"  id="">
+                      <span id="emailerror" class="text-danger font-weight-bold"> </span>
+                  </div>
+                      
+                      <div class="form-group">
+                        <label >mobile number</label>
+                        <input type="number" name="num" id="mn" class="form-control"  id="mno">
+                        <span id="numerror" class="text-danger font-weight-bold"> </span>
+                    </div>
+
+                     
+
+                      <div class="form-group">
+                        <button  id="entry" onclick="action()"  class="btn-success">submit</button>
+                      </div>
+
+            
+            <!-- </form> -->
+        </div>
+    </div>
+   
+    <table id="display">
+       
+            
+         </table>
+        
+
+
+<script type="text/javascript"> 
+
+function validation()
+{
+var UserName=document.getElementById("us").value;
+var password=document.getElementById("ps").value;
+var conifrmp=document.getElementById("cps").value;
+var mobnum=document.getElementById("mn").value;
+var email=document.getElementById("mail").value;
+
+
+var userex=/^[a-zA-Z. ]{3,20}$/;
+var passex=/^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&* ]{5,15}$/;
+// var passex=/^[a-z]$/
+var emex=/^[A-Za-z0-9]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z.]{2,6}$/;
+var mex=/^\d{10}$/;
+
+if(userex.test(UserName))
+{
+  document.getElementById("usererror").innerHTML=" ";
+}
+else{
+  document.getElementById("usererror").innerHTML="** Please enter valid username";
+  return false;
+}
+
+if(passex.test(password))
+{
+  document.getElementById("passworderror").innerHTML=" ";
+}
+else{
+  document.getElementById("passworderror").innerHTML="** Password is not valid format";
+  return false;
+}
+
+if(conifrmp.match(password))
+{
+  document.getElementById("cpasserror").innerHTML=" ";
+}
+else
+{
+  document.getElementById("cpasserror").innerHTML="** The password doesn't match ";
+  return false;
+}
+
+
+if(emex.test(email))
+{
+  document.getElementById("emailerror").innerHTML=" ";
+}
+else{
+  document.getElementById("emailerror").innerHTML="** Please enter valid mailid";
+  return false;
+}
+
+if(mex.test(mobnum))
+{
+  document.getElementById("numerror").innerHTML=" ";
+}
+else{
+  document.getElementById("numerror").innerHTML="** Please enter valid mobilenum";
+  return false;
+}
+
+return true;
+}
+</script>
+
+
+<script src="form1.js"></script>
+
+
+</body>
+
+
+</html>
